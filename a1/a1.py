@@ -56,11 +56,8 @@ def future_tense(x):
             elif word in past_verb:
                 out = out + ['will'] + [verb[word]]
             elif word[-2:] == 'ed':
-                out = out + ['will'] + [verb[word][:-2]]
+                out = out + ['will'] + [word[:-2]]
             else:
                 out = out + [word]
     return out
-
-
-
 

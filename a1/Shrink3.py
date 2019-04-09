@@ -28,6 +28,7 @@ def Shrink():
         mapped_wordlist[0]=mapped_wordlist[0].capitalize()
         respond(the_input, wordlist, mapped_wordlist)
 
+
 def respond(the_input, wordlist, mapped_wordlist):
     if wordlist[0]=='':
         print("Please say something.")
