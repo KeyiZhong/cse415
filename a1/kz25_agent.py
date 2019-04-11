@@ -80,8 +80,6 @@ def respond(the_input):
                               'Nice!'])
     if 'name' in wordlist[-1]:
         return 'My name is Dale Vandermeer'
-    ##if 'you' in mapped_wordlist or 'You' in mapped_wordlist:
-        ##return stringify(mapped_wordlist)
     return uselessSentence()
 
 
@@ -168,11 +166,3 @@ def verbp(w):
                   'make', 'get', 'jump', 'write', 'type', 'fill',
                   'put', 'turn', 'compute', 'think', 'drink',
                   'blink', 'crash', 'crunch', 'add'])
-
-
-#print(introduce())
-#while True:
-#    the_input = input()
-#    print(respond(the_input))
-#    if 'bye' in the_input:
-#        break
