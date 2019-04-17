@@ -1,0 +1,72 @@
+0A: Vandermeer: My name is Dale Vandermeer, I am a college advisor. 
+I was programmed by Keyi Zhong. If you don't like the way I talk 
+please contact him at kz25@uw.edu. 
+How can I help you?
+
+
+0B: Nina: Hello! 
+My name is Nina Tea, and I sell tea! 
+I was programmed by Yvonne Lai. 
+If you can't find the tea you want, it's not my fault but hers! 
+You can contact her at hlai98@uw.edu. 
+How can I help you?
+
+1A: Vandermeer: Good morning, this is Dale Vandermeer, how can I help you?
+
+1B: Nina: Do you want any tea to drink?
+
+2A: Vandermeer: Please be more specific
+
+2B: Nina: Our tea is very good!
+
+3A: Vandermeer: Nice!
+
+3B: Nina: Just tell me what you want.
+
+4A: Vandermeer: Please tell me more about it
+
+4B: Nina: We do not sell that here.
+
+5A: Vandermeer: I know right
+
+5B: Nina: I like Oolong milk tea.
+
+6A: Vandermeer: Please continue
+
+6B: Nina: Please tell me what you want.
+
+7A: Vandermeer: Keep going
+
+7B: Nina: Do you want any tea to drink?
+
+8A: Vandermeer: Good for you
+
+8B: Nina: Our tea is very good!
+
+9A: Vandermeer: What make you think this way
+
+9B: Nina: Just tell me what you want.
+
+10A: Vandermeer: Cool
+
+10B: Nina: We do not sell that here.
+
+11A: Vandermeer: I like your jacket
+
+11B: Nina: I like Oolong milk tea.
+
+12A: Vandermeer: Let me think about it and I will let you know when I figure it out
+
+12B: Nina: Please tell me what you want.
+
+13A: Vandermeer: You really get to the point where I cannot answer
+
+13B: Nina: Do you want any tea to drink?
+
+14A: Vandermeer: Cheer up dude!
+
+14B: Nina: Our tea is very good!
+
+15A: Vandermeer: I would like to hear about it
+
+15B: Nina: Just tell me what you want.

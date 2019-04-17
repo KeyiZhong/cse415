@@ -3,7 +3,7 @@
 # elsewhere as separate modules.
 
 import kz25_agent as agentA
-import Hearnone as agentB
+import hlai98_agent as agentB
 
 N_TURNS = 15
 
