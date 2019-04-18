@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6fda5975-de6f-4189-a1b5-b141b85cfddf" name="Default Changelist" comment="a1 finished">
-      <change afterPath="$PROJECT_DIR$/a2-starter-code/BFS.py" afterDir="false" />
+    <list default="true" id="6fda5975-de6f-4189-a1b5-b141b85cfddf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1/dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/a1/dialog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a2-starter-code/BFS.py" beforeDir="false" afterPath="$PROJECT_DIR$/a2-starter-code/BFS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a2-starter-code/FarmerFox.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a2-starter-code/UCS.py" beforeDir="false" afterPath="$PROJECT_DIR$/a2-starter-code/UCS.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,24 +16,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/a2-starter-code/BFS.py">
+        <entry file="file://$PROJECT_DIR$/a2-starter-code/ItrDFS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-208">
-              <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+            <state relative-caret-position="-143">
+              <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/a2-starter-code/FranceWithCosts.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/a2-starter-code/BFS.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/a2-starter-code/Int_Solv_Client.py">
+        <entry file="file://$PROJECT_DIR$/a2-starter-code/kz25_Farmer_Fox.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-762">
-              <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+            <state relative-caret-position="15">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -40,8 +45,33 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/a2-starter-code/UCS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="140" column="12" selection-start-line="140" selection-start-column="12" selection-end-line="140" selection-end-column="12" />
+            <state relative-caret-position="30">
+              <caret line="175" column="15" selection-start-line="175" selection-start-column="15" selection-end-line="175" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/a2-starter-code/FranceWithCosts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/a2-starter-code/TowersOfHanoi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1408" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/a2-starter-code/Int_Solv_Client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-762">
+              <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -58,6 +88,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>DFS</find>
+      <find>TOTAL_CO</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -77,8 +108,12 @@
         <option value="$PROJECT_DIR$/a2-starter-code/Missionaries/Missionaries.py" />
         <option value="$PROJECT_DIR$/a2-starter-code/FarmerFox/FarmerFox.py" />
         <option value="$PROJECT_DIR$/a2-starter-code/starter-file-for-UCS.py" />
-        <option value="$PROJECT_DIR$/a2-starter-code/BFS.py" />
+        <option value="$PROJECT_DIR$/a2-starter-code/ItrDFS.py" />
+        <option value="$PROJECT_DIR$/a2-starter-code/FranceWithCosts.py" />
+        <option value="$PROJECT_DIR$/a2-starter-code/FFCG-og.txt" />
+        <option value="$PROJECT_DIR$/a2-starter-code/kz25_Farmer_Fox.py" />
         <option value="$PROJECT_DIR$/a2-starter-code/UCS.py" />
+        <option value="$PROJECT_DIR$/a2-starter-code/BFS.py" />
       </list>
     </option>
   </component>
@@ -204,7 +239,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/a2-starter-code/ItrDFS.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="TowersOfHanoi 3" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -225,7 +260,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/a2-starter-code/UCS.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="FranceWithCosts" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -254,12 +289,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.dialog" />
+      <item itemvalue="Python.FarmerFox" />
+      <item itemvalue="Python.Int_Solv_Client" />
+      <item itemvalue="Python.ItrDFS" />
+      <item itemvalue="Python.UCS" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.UCS" />
+        <item itemvalue="Python.ItrDFS" />
         <item itemvalue="Python.FarmerFox" />
         <item itemvalue="Python.Int_Solv_Client" />
-        <item itemvalue="Python.ItrDFS" />
         <item itemvalue="Python.dialog" />
       </list>
     </recent_temporary>
@@ -303,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1554951551526</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="a2 struggle">
+      <created>1555535530813</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555535530813</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -315,7 +364,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -323,7 +372,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32891566" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -335,7 +384,8 @@
     <MESSAGE value="INITIAL COMMIT" />
     <MESSAGE value="a2 finished" />
     <MESSAGE value="a1 finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="a1 finished" />
+    <MESSAGE value="a2 struggle" />
+    <option name="LAST_COMMIT_MESSAGE" value="a2 struggle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -420,13 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/a2-starter-code/ItrDFS.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="17" column="28" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/a2-starter-code/FarmerFox/FarmerFox.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -441,13 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/a2-starter-code/BFS.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/a2-starter-code/Int_Solv_Client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-762">
@@ -456,12 +492,56 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/a2-starter-code/FranceWithCosts.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a2-starter-code/FFCG-og.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a2-starter-code/TowersOfHanoi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1408" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a2-starter-code/FarmerFox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a2-starter-code/ItrDFS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-143">
+          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a2-starter-code/kz25_Farmer_Fox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a2-starter-code/BFS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/a2-starter-code/UCS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="140" column="12" selection-start-line="140" selection-start-column="12" selection-end-line="140" selection-end-column="12" />
+        <state relative-caret-position="30">
+          <caret line="175" column="15" selection-start-line="175" selection-start-column="15" selection-end-line="175" selection-end-column="15" />
         </state>
       </provider>
     </entry>

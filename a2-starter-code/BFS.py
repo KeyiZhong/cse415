@@ -1,5 +1,12 @@
-''' ItrB
-FS.py
+'''BFS.py
+by Keyi Zhong
+
+Assignment 2, in CSE 415, Spring 2019.
+
+This file contains my BFS algorithm
+'''
+
+''' ItrBFS.py
 Iterative Depth-First Search of a problem space.
  Version 0.4, January 15, 2018.
  Steve Tanimoto, Univ. of Washington.
@@ -43,20 +50,17 @@ def runBFS():
 def IterativeBFS(initial_state):
     global COUNT, BACKLINKS, MAX_OPEN_LENGTH
 
-    # STEP 1. Put the start state on a list OPEN
+
     OPEN = [initial_state]
     CLOSED = []
     BACKLINKS[initial_state] = None
 
-    # STEP 2. If OPEN is empty, output “DONE” and stop.
+
     while OPEN != []:
         report(OPEN, CLOSED, COUNT)
         if len(OPEN) > MAX_OPEN_LENGTH: MAX_OPEN_LENGTH = len(OPEN)
 
-        # STEP 3. Select the first state on OPEN and call it S.
-        #         Delete S from OPEN.
-        #         Put S on CLOSED.
-        #         If S is a goal state, output its description
+
         S = OPEN.pop(0)
         CLOSED.append(S)
 
@@ -67,19 +71,21 @@ def IterativeBFS(initial_state):
             return
         COUNT += 1
 
-        # STEP 4. Generate the list L of successors of S and delete
-        #         from L those states already appearing on CLOSED.
+
         L = []
         for op in Problem.OPERATORS:
             if op.precond(S):
                 new_state = op.state_transf(S)
                 if not (new_state in CLOSED):
-                    if not (new_state in OPEN):
-                        BACKLINKS[new_state] = S
-                        L.append(new_state)
+                    L.append(new_state)
+                    BACKLINKS[new_state] = S
 
-        # STEP 5. Delete from OPEN any members of OPEN that occur on L.
-        #         Insert all members of L at the front of OPEN.
+
+        for s2 in OPEN:
+            for i in range(len(L)):
+                if (s2 == L[i]):
+                    del L[i];
+                    break
 
         OPEN = OPEN + L
         print_state_list("OPEN", OPEN)
