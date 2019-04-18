@@ -1,0 +1,133 @@
+Welcome to ItrDFS
+Initial State:
+
+ Left bank: Ffcg
+ Right bank:
+ boat is on the left.
+
+len(OPEN)=1; len(CLOSED)=0; COUNT = 0
+OPEN is now:
+ Left bank: fcg
+ Right bank: F
+ boat is on the right.
+,
+ Left bank: fg
+ Right bank: Fc
+ boat is on the right.
+
+len(OPEN)=2; len(CLOSED)=1; COUNT = 1
+OPEN is now:
+ Left bank: fg
+ Right bank: Fc
+ boat is on the right.
+
+len(OPEN)=1; len(CLOSED)=2; COUNT = 2
+OPEN is now:
+ Left bank: Ffg
+ Right bank: c
+ boat is on the left.
+
+len(OPEN)=1; len(CLOSED)=3; COUNT = 3
+OPEN is now:
+ Left bank: g
+ Right bank: Ffc
+ boat is on the right.
+,
+ Left bank: f
+ Right bank: Fcg
+ boat is on the right.
+
+len(OPEN)=2; len(CLOSED)=4; COUNT = 4
+OPEN is now:
+ Left bank: Fcg
+ Right bank: f
+ boat is on the left.
+,
+ Left bank: f
+ Right bank: Fcg
+ boat is on the right.
+
+len(OPEN)=2; len(CLOSED)=5; COUNT = 5
+OPEN is now:
+ Left bank: c
+ Right bank: Ffg
+ boat is on the right.
+,
+ Left bank: f
+ Right bank: Fcg
+ boat is on the right.
+
+len(OPEN)=2; len(CLOSED)=6; COUNT = 6
+OPEN is now:
+ Left bank: Fc
+ Right bank: fg
+ boat is on the left.
+,
+ Left bank: Ffc
+ Right bank: g
+ boat is on the left.
+,
+ Left bank: f
+ Right bank: Fcg
+ boat is on the right.
+
+len(OPEN)=3; len(CLOSED)=7; COUNT = 7
+OPEN is now:
+ Left bank:
+ Right bank: Ffcg
+ boat is on the right.
+,
+ Left bank: Ffc
+ Right bank: g
+ boat is on the left.
+,
+ Left bank: f
+ Right bank: Fcg
+ boat is on the right.
+
+len(OPEN)=3; len(CLOSED)=8; COUNT = 8
+Congratulations on successfully guiding the Farmer Fox Chicken and Grain across the river!
+Solution path:
+
+ Left bank: Ffcg
+ Right bank:
+ boat is on the left.
+
+
+ Left bank: fg
+ Right bank: Fc
+ boat is on the right.
+
+
+ Left bank: Ffg
+ Right bank: c
+ boat is on the left.
+
+
+ Left bank: g
+ Right bank: Ffc
+ boat is on the right.
+
+
+ Left bank: Fcg
+ Right bank: f
+ boat is on the left.
+
+
+ Left bank: c
+ Right bank: Ffg
+ boat is on the right.
+
+
+ Left bank: Fc
+ Right bank: fg
+ boat is on the left.
+
+
+ Left bank:
+ Right bank: Ffcg
+ boat is on the right.
+
+Length of solution path found: 7 edges
+8 states expanded.
+MAX_OPEN_LENGTH = 3
