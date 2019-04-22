@@ -1,4 +1,4 @@
-''' UCS.py
+''' Astar.py
 Uniform Cost Search of a problem space.
  Version 0.2, January 23, 2019.
  Steve Tanimoto, Univ. of Washington.
@@ -107,7 +107,7 @@ class My_Priority_Queue:
     txt += ']'
     return txt
 
-def runUCS():
+def runAstar():
   '''This is an encapsulation of some setup before running
   UCS, plus running it and then printing some stats.'''
   initial_state = Problem.CREATE_INITIAL_STATE()
@@ -117,15 +117,15 @@ def runUCS():
   COUNT = 0
   BACKLINKS = {}
   MAX_OPEN_LENGTH = 0
-  SOLUTION_PATH = UCS(initial_state)
+  SOLUTION_PATH = Astar(initial_state)
   print(str(COUNT)+" states expanded.")
   print('MAX_OPEN_LENGTH = '+str(MAX_OPEN_LENGTH))
   #print("The CLOSED list is: ", ''.join([str(s)+' ' for s in CLOSED]))
 
-def UCS(initial_state):
+def Astar(initial_state):
   '''Uniform Cost Search. This is the actual algorithm.'''
   global g, COUNT, BACKLINKS, MAX_OPEN_LENGTH, CLOSED, TOTAL_COST, f, h
-  CLOSED = []
+  CLOSED = My_Priority_Queue()
   BACKLINKS[initial_state] = None
   # The "Step" comments below help relate UCS's implementation to
   # those of Depth-First Search and Breadth-First Search.
@@ -149,7 +149,7 @@ def UCS(initial_state):
 #         If S is a goal state, output its description
     (S,P) = OPEN.delete_min()
     #print("In Step 3, returned from OPEN.delete_min with results (S,P)= ", (str(S), P))
-    CLOSED.append(S)
+    CLOSED.insert(S,P)
 
     if Problem.GOAL_TEST(S):
       print(Problem.GOAL_MESSAGE_FUNCTION(S))
@@ -163,16 +163,21 @@ def UCS(initial_state):
 # STEP 4. Generate each successors of S and delete 
 #         and if it is already on CLOSED, delete the new instance.
     gs = g[S] # Save the cost of getting to S in a variable.
+    # fs = gs + h[S]
     for op in Problem.OPERATORS:
       if op.precond(S):
         new_state = op.state_transf(S)
-        if (new_state in CLOSED):
-          #print("Already have this state, in CLOSED. del ...")
-          del new_state
-          continue
         edge_cost = S.edge_distance(new_state)
         new_g = gs + edge_cost
+        new_f = new_g + h[new_state]
 
+        if new_state in CLOSED:
+          #print("Already have this state, in CLOSED. del ...")
+          if f[new_state]>CLOSED[new_state]:
+            break
+          else:
+            del new_state
+          continue
         # If new_state already exists on OPEN:
         #   If its new priority is less than its old priority,
         #     update its priority on OPEN, and set its BACKLINK to S.
@@ -181,26 +186,27 @@ def UCS(initial_state):
         if new_state in OPEN:
           #print("new_state is in OPEN already, so...")
           P = OPEN[new_state]
-          if new_g < P:
+          if new_f < P:
             #print("New priority value is lower, so del older one")
             del OPEN[new_state]
-            OPEN.insert(new_state, new_g)
+            OPEN.insert(new_state, new_f)
           else:
             #print("Older one is better, so del new_state")
             del new_state
             continue
         else:
             #print("new_state was not on OPEN at all, so just put it on.")
-            OPEN.insert(new_state, new_g)
+            OPEN.insert(new_state, new_f)
         BACKLINKS[new_state] = S
         g[new_state] = new_g
+        f[new_state] = new_f
 
     #print_state_queue("OPEN", OPEN)
   # STEP 6. Go to Step 2.
   return None  # No more states on OPEN, and no goal reached.
 
 def print_state_queue(name, q):
-  print(name+" is now: ",end='')
+  print(name+" is now: ",end = '')
   print(str(q))
 
 def backtrace(S):
@@ -221,5 +227,5 @@ def report(open, closed, count):
   print("COUNT = "+str(count))
 
 if __name__=='__main__':
-  runUCS()
+  runAstar()
 
