@@ -1,26 +1,37 @@
-''' Astar.py
+'''UCS.py
 by Keyi Zhong
 
-Assignment 3, in CSE 415, Spring 2019.
+Assignment 2, in CSE 415, Spring 2019.
 
-This file contains my Astar algorithm
+This file contains my UCS algorithm
 
-This file Includes a priority queue implementation by
+
+This file Includes a priority queue implementation by 
  S. Tanimoto, Univ. of Washington.
 Paul G. Allen School of Computer Science and Engineering
+
+Intended USAGE:
+ python3 UCS.py FranceWithCosts
+
+
 '''
 
-VERBOSE = False  # Set to True to see progress; but it slows the search.
+VERBOSE = True  # Set to True to see progress; but it slows the search.
 
 import sys
 
 if sys.argv==[''] or len(sys.argv)<2:
-  import EightPuzzle as Problem
+  try:
+    import EightPuzzle as Problem
+  except:
+    print("Note that the EightPuzzle formulation will be used in Assignment 3, not Assignment 2")
+    print("Try python3 UCS.py FranceWithCosts")
+
 else:
   import importlib
   Problem = importlib.import_module(sys.argv[1])
 
-print("\nWelcome to UCS")
+print("\nWelcome to UCS, by Keyi Zhong")
 
 COUNT = None # Number of nodes expanded.
 MAX_OPEN_LENGTH = None # How long OPEN ever gets.
@@ -31,8 +42,6 @@ BACKLINKS = {} # Predecessor links, used to recover the path.
 # The value g(s) represents the cost along the best path found so far
 # from the initial state to state s.
 g = {} # We will use a global hash table to associate g values with states.
-h = Problem.h
-f = {}
 
 class My_Priority_Queue:
   def __init__(self):
@@ -62,7 +71,7 @@ class My_Priority_Queue:
 
   def insert(self, state, priority):
     '''We do not keep the list sorted, in this implementation.'''
-    #print("calling insert with state, priority: ", state, priority)
+    # print("calling insert with state, priority: ", state, priority)
 
     if self[state] != -1:
       print("Error: You're trying to insert an element into a My_Priority_Queue instance,")
@@ -87,7 +96,7 @@ class My_Priority_Queue:
   def __delitem__(self, state):
     '''This method enables Python's del operator to delete
     items from the queue.'''
-    #print("In MyPriorityQueue.__delitem__: state is: ", str(state))
+    # print("In MyPriorityQueue.__delitem__: state is: ", str(state))
     for count, (S,P) in enumerate(self.q):
       if S==state:
         del self.q[count]
@@ -99,7 +108,7 @@ class My_Priority_Queue:
     txt += ']'
     return txt
 
-def runAstar():
+def runUCS():
   '''This is an encapsulation of some setup before running
   UCS, plus running it and then printing some stats.'''
   initial_state = Problem.CREATE_INITIAL_STATE()
@@ -109,96 +118,65 @@ def runAstar():
   COUNT = 0
   BACKLINKS = {}
   MAX_OPEN_LENGTH = 0
-  SOLUTION_PATH = Astar(initial_state)
+  SOLUTION_PATH = UCS(initial_state)
   print(str(COUNT)+" states expanded.")
   print('MAX_OPEN_LENGTH = '+str(MAX_OPEN_LENGTH))
-  #print("The CLOSED list is: ", ''.join([str(s)+' ' for s in CLOSED]))
+  print(TOTAL_COST)
 
-def Astar(initial_state):
-  '''Astar Search. This is the actual algorithm.'''
-  global g, COUNT, BACKLINKS, MAX_OPEN_LENGTH, CLOSED, TOTAL_COST, f, h
-  CLOSED = My_Priority_Queue()
+def UCS(initial_state):
+  '''Uniform Cost Search. This is the actual algorithm.'''
+  global g, COUNT, BACKLINKS, MAX_OPEN_LENGTH, CLOSED, TOTAL_COST
+  CLOSED = []
   BACKLINKS[initial_state] = None
+  TOTAL_COST = 0
   # The "Step" comments below help relate UCS's implementation to
   # those of Depth-First Search and Breadth-First Search.
 
-# STEP 1a. Put the start state on a priority queue called OPEN
   OPEN = My_Priority_Queue()
-  f[initial_state] = h(initial_state)
-  OPEN.insert(initial_state, f[initial_state])
-# STEP 1b. Assign g=0 to the start state.
+  OPEN.insert(initial_state, 0)
+
   g[initial_state]=0.0
 
 
-# STEP 2. If OPEN is empty, output “DONE” and stop.
-  while len(OPEN)>0:
+  while OPEN != []:
     if VERBOSE: report(OPEN, CLOSED, COUNT)
     if len(OPEN)>MAX_OPEN_LENGTH: MAX_OPEN_LENGTH = len(OPEN)
 
-# STEP 3. Select the state on OPEN having lowest priority value and call it S.
-#         Delete S from OPEN.
-#         Put S on CLOSED.
-#         If S is a goal state, output its description
-    (S,P) = OPEN.delete_min()
-    #print("In Step 3, returned from OPEN.delete_min with results (S,P)= ", (str(S), P))
-    CLOSED.insert(S,P)
 
+    (S,P) = OPEN.delete_min()
+    # print("In Step 3, returned from OPEN.delete_min with results (S,P)= ", (str(S), P))
+    CLOSED.append(S)
     if Problem.GOAL_TEST(S):
+
       print(Problem.GOAL_MESSAGE_FUNCTION(S))
       path = backtrace(S)
-      print('Length of solution path found: '+str(len(path)-1)+' edges')
-      TOTAL_COST = g[S]
-      print('Total cost of solution path found: '+str(TOTAL_COST))
+      print('Length of solution path found: ' + str(len(path) - 1) + ' edges')
+      TOTAL_COST = P
       return path
     COUNT += 1
 
-# STEP 4. Generate each successors of S and delete 
-#         and if it is already on CLOSED, delete the new instance.
-    gs = g[S] # Save the cost of getting to S in a variable.
-    # fs = gs + h[S]
+
     for op in Problem.OPERATORS:
-      if op.precond(S):
-        new_state = op.state_transf(S)
-        edge_cost = S.edge_distance(new_state)
-        new_g = gs + edge_cost
-        new_f = new_g + h(new_state)
-
-        if new_state in CLOSED:
-          #print("Already have this state, in CLOSED. del ...")
-          if f[new_state]>CLOSED[new_state]:
-            break
-          else:
-            del new_state
-          continue
-        # If new_state already exists on OPEN:
-        #   If its new priority is less than its old priority,
-        #     update its priority on OPEN, and set its BACKLINK to S.
-        #   Else: forget out this new state object... delete it.
-
-        if new_state in OPEN:
-          #print("new_state is in OPEN already, so...")
-          P = OPEN[new_state]
-          if new_f < P:
-            #print("New priority value is lower, so del older one")
-            del OPEN[new_state]
-            OPEN.insert(new_state, new_f)
-          else:
-            #print("Older one is better, so del new_state")
-            del new_state
-            continue
+      if op.is_applicable(S):
+        new_state = op.apply(S)
+        new_distance = P + new_state.edge_distance(S)
+        if OPEN.__contains__(new_state):
+          if OPEN.__getitem__(new_state) > new_distance:
+            OPEN.__delitem__(new_state)
+            OPEN.insert(new_state,new_distance)
+            BACKLINKS[new_state] = S
         else:
-            #print("new_state was not on OPEN at all, so just put it on.")
-            OPEN.insert(new_state, new_f)
-        BACKLINKS[new_state] = S
-        g[new_state] = new_g
-        f[new_state] = new_f
+          try:
+            CLOSED.index(new_state)
+          except:
+            OPEN.insert(new_state, new_distance)
+            BACKLINKS[new_state] = S
 
-    #print_state_queue("OPEN", OPEN)
-  # STEP 6. Go to Step 2.
-  return None  # No more states on OPEN, and no goal reached.
+
+  return None
 
 def print_state_queue(name, q):
-  print(name+" is now: ",end = '')
+  print(name+" is now: ",end='')
   print(str(q))
 
 def backtrace(S):
@@ -219,5 +197,5 @@ def report(open, closed, count):
   print("COUNT = "+str(count))
 
 if __name__=='__main__':
-  runAstar()
+  runUCS()
 

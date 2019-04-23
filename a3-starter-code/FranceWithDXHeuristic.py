@@ -25,4 +25,4 @@ def h(s):
   return 10.0 * abs(dx)
 
 # A simple test:
-#print(h('Nantes'))
+print(h('Nantes'))
