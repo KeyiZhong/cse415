@@ -12,7 +12,11 @@ Python 3 constructs and has been tested with Python 3.6.
 It is designed to work according to the QUIET2 tools interface.
 '''
 #</METADATA>
-
+[[2,1,1,3],
+ [2,1,1,3],
+ [4,6,6,5],
+ [4,7,8,5],
+ [9,0,0,10]]
 #<COMMON_DATA>
 #</COMMON_DATA>
 

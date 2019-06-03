@@ -18,7 +18,7 @@ import TTS_win_tester
 import time
 
 USE_CUSTOM_STATIC_EVAL_FUNCTION = True
-ALPHA_BETA = False
+ALPHA_BETA = q
 STATE={}
 zobristnum = []
 side = None
@@ -30,6 +30,7 @@ n_states_expanded = 0
 n_static_evals = 0
 n_cutoffs = 0
 best = None
+
 
 class MY_TTS_State(TTS_State):
     def static_eval(self):
