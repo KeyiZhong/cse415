@@ -31,17 +31,32 @@ POSSIBLE_ACTION = ['lowers number of refugees',
                    'starts refugees policy']
 # </COMMON_DATA>
 
+
 # <COMMON_CODE>
 class State:
-    def __init__(self):
-        self.b = INITIAL_STATE
+    def __init__(self, b):
+        newb = default_state()
+        country_index = 0
+        default = False
+        if len(b) == len(COUNTRIES):
+            for country in COUNTRIES:
+                if len(b[country_index]) == len(ATTRIBUTES):
+                    for index in range(len(ATTRIBUTES)):
+                        newb[country][ATTRIBUTES[index]] = b[country_index][index]
+                else:
+                    default = True
+        else:
+            default = True
+        if default:
+            self.b = default_state()
+        else:
+            self.b = newb
 
     def __eq__(self, s2):
         for country in self.b:
-            if country not in s2.b:
-                return False
-            if self.b[country] != s2.b[country]:
-                return False
+            for attribute in self.b[country]:
+                if self.b[country][attribute] != s2.b[country][attribute]:
+                    return False
         return True
 
     def __str__(self):
@@ -65,8 +80,13 @@ class State:
     def copy(self):
         # Performs an appropriately deep copy of a state,
         # for use by operators in creating new states.
-        news = State()
-        news.b = self.b.copy()
+        news = State([[]])
+        for country in news.b:
+            news.b[country]["# of refugee"] = self.b[country]["# of refugee"]
+            news.b[country]["GDP"] = self.b[country]["GDP"]
+            news.b[country]["public security"] = self.b[country]["public security"]
+            news.b[country]["political stability"] = self.b[country]["political stability"]
+            news.b[country]["honor"] = self.b[country]["honor"]
         return news
 
     def can_move(self, act):
@@ -138,20 +158,18 @@ class State:
         return news
 
     def edge_distance(self,s):
-        total_num = 0
-        countries = s.b
-        for country in countries:
-            total_num += int(countries[country]['# of refugee'])
-        return TOTAL_NUM_OF_REFUGEES - total_num
+        return 1
 
-
-
-def goal_test(s):
-    '''If total refugee is greater or equal to the number of refugee in real world'''
+def total(s):
     total_num = 0
     countries = s.b
     for country in countries:
         total_num += int(countries[country]['# of refugee'])
+    return total_num
+
+def goal_test(s):
+    '''If total refugee is greater or equal to the number of refugee in real world'''
+    total_num = total(s)
     return total_num > TOTAL_NUM_OF_REFUGEES
 
 
@@ -177,19 +195,21 @@ class Operator:
 # <INITIAL_STATE>
 # Use default, but override if new value supplied
 # by the user on the command line.
-# try:
-#     import sys
-#
-#     init_state_string = sys.argv[2]
-#     print("Initial state as given on the command line: " + init_state_string)
-#     init_state_list = eval(init_state_string)
-# except:
-#     init_state_list = [[3, 1, 2], [0, 5, 8], [4, 6, 7]]
-#     print("Using default initial state list: " + str(init_state_list))
-#     print(" (To use a specific initial state, enter it on the command line, e.g.,")
-#     print("python3 UCS.py EightPuzzle '[[3, 1, 2], [0, 4, 5], [6, 7, 8]]'")
+try:
+    import sys
 
-CREATE_INITIAL_STATE = lambda: State()
+    init_state_string = sys.argv[2]
+    print("Initial state as given on the command line: " + init_state_string)
+    init_state_list = eval(init_state_string)
+except:
+    init_state_list = [[287065,194,53,80,0],[121766,26,57,80,0],[970302,36,65,40,0],[337143,25,53,40,0],
+                       [125986,15,58,80,0],[321699,122,54,100,0]]
+    print("Using default initial state list: " + str(init_state_list))
+    print(" (To use a specific initial state, enter it on the command line, e.g.,")
+    print("python3 UCS.py Wicked '[[287065,194,53,80,0],[121766,26,57,80,0],[970302,36,65,40,0],"
+          "[337143,25,53,40,0],[125986,15,58,80,0],[321699,122,54,100,0]]'")
+
+CREATE_INITIAL_STATE = lambda: State(init_state_list)
 
 
 def default_country():
